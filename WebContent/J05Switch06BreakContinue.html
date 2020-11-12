@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J05SwitchBreakContinue.html</title>
+    <script>
+        switch(10%2==0){
+            case true:
+                document.write("짝수<br>");
+                break;
+            case false:
+                document.write("홀수<br>");
+                break;
+        }
+
+        switch("자스"){
+            case "자바" : document.write("자바다");
+                break;
+            case "자스" : document.write("자스다");
+                break;
+            case "자수" : document.write("자수다");
+                break;
+        }
+
+        var i=0;
+        while(-1){
+            i++;
+
+            document.write("<br><br>i="+i+"<br/>");
+            if(i==3) break;
+
+            document.write("break문 이후 출력문<br>");
+
+            if(i%2==0) continue;
+            document.write("continue문 이후 출력문<br>")
+        }
+        document.write("while문 종료")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
