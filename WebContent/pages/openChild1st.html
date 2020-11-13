@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/pages/openChild1st.html</title>
+    <script>
+        function.openChild2(){
+            window.open("openChild2nd.html", "child2",
+            "width=300, height=300, left=300, top=0");
+        }
+        var openerText=function(){
+            opener.document.getElementById("btnFirst").type="text";
+            opener.document.getElementById("btnFirst").style.backgroundColor="red";
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

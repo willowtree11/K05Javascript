@@ -73,8 +73,79 @@
         var isNum2 = isNumber("100A");
         (isNum2 == true) ? document.write("숫자형식<br/>"): document.write("숫자형식아님<br/>");
 
+        
+        document.write("<br><br>-------------------------------<br><br>")
+        /////////////////////////////////////////////////////////////////
 
+        //구분자로 문자열을 분리해서 배열로 반환하는 함수
+        document.write("<h2>split() 함수</h2>");
+        document.write("<h3>구분자가 있는 경우</h3>");
+        var tel="010-1234-5678";
+        var telArr=tel.split("-");
+        //크기가 3인 배열로 반환
+        for(var i=0; i<telArr.length; i++){
+            document.write("telArr["+i+"]="+telArr[i]+"<br>");
+        }
 
+        document.write("<h3>구분자가 없는 경우</h3>");
+        var telArrNo=tel.split("*");
+        //크기가 1인 배열로 반환
+        for(var i=0; i<telArrNo.length; i++){
+            document.write("telArrNo["+i+"]="+telArrNo[i]+"<br>");
+        }
+
+        //특정 문자열의 인덱스를 반환하는 함수
+        document.write("<h2>indexOf() 함수</h2>");
+        document.write(str2.indexOf("자바")!=-1 ? "자바 포함 됨" : "자바 포함 안 됨");
+
+        document.write("<h2>lastIndexOf() 함수</h2>");
+        document.write(str1.lastIndexOf("a")!=-1 ? "a 포함 됨" : "a 포함 안 됨");
+        document.write(str1+"에서 a의 마지막 위치는?"+str1.lastIndexOf("a")+"<br>");
+
+        
+        /*
+        연습문제] 아래 이메일 주소에서 @와 .사이에 있는값만
+        추출하여 출력하는 프로그램을 작성하시오.
+        xxx@yyy.co.kr 이라면 yyy만 출력되어야 한다.
+        */
+        var emailArray = ["kim@naver.com", "sung@hanmail.net", "park@ikosmo.co.kr"];
+        var getDomainStr = function(emailArr){
+            
+            //방법1: indexOf사용
+            for(var i=0; i<emailArr.length; i++){
+                
+                //@의 인덱스를 찾아 1을 더해준다
+                var startIdx = emailArr[i].indexOf('@')+1; //@ 다음부터 시작되는 문자열이 필요하므로
+                //.의 인덱스를 찾는다
+                var endIdx = emailArr[i].indexOf("."); //@<문자열<.
+                //인덱스를 통해 문자열을 잘라낸다
+                var resultStr = emailArr[i].substring(startIdx, endIdx);
+                document.write("결과1(indexOf) = "+resultStr+"<br>");
+            }
+
+            //방법2: split사용(선생님 파일 확인.. 결과가 두 번째 메일주소로 나옴...)
+            for(var i=0; i<emailArr.length; i++){
+                //이메일을 @으로 찾아 1차 split한다
+                var firstArr=emailArr[i].split('@');
+                //위 결과의 1번 인덱스 값으로 2차 split을 진행한다
+                var secondArr=emailArr[1].split('.');
+                //두 번째 split결과의 0번 인덱스를 출력한다.
+                document.write("결과2(split) = "+secondArr[0]+"<br>");
+                /* 
+                    스플릿 함수는 JSP에서 웹크롤링과 연계된다.
+                    ex] kim@ikosmo.co.kr
+                    ->1차 [0번째][1번쨰] kim / ikosmo.co.kr 
+                    ->2차 [0][1][2] ikosmo / co / kr
+                    ->3차 2번째 추출한 배열중 0번째만 선택
+                 */
+            }
+        }
+        document.write("<h2>연습문제>도메인 추출하기</h2>");
+        getDomainStr(emailArray);
+
+        
+
+        
 
     </script>
 </head>

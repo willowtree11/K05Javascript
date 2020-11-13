@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J10Date.html</title>
+    <script>
+        /* 
+            Date객체
+                setXXX() : 날짜를 설정할 때
+                getXXX() : 날짜를 가져올 때
+         */
+        document.write("<h2>JS의 Core객체 - Date</h2>")
+
+        var date=new Date();
+        document.write("저장된 값: "+date+"<br>");
+        //1900년도부터 현재까지의 지난 년도를 반환하므로 1900을 더해줘야 함. --브라우저마다 다름.. ie구버전은 1900을 더하지 않고도 년도가 구해짐
+        document.write("연도 변환: : "+(date.getYear())+"<br>");
+        //0~11까지의 월을 반환하므로 1을 더해줘야 함.
+        document.write("월 변환: "+(date.getMonth())+"<br>");
+
+        document.write(
+            (date.getYear()+1900)+"년 "+
+            (date.getMonth()+1)+"월 "+
+            date.getDate()+"일 "+
+            date.getHours()+"시 "+
+            date.getMinutes()+"분 "+
+            date.getSeconds()+"초<br>");
+
+        //날짜와 시간을 12월 25일, 오후 1시로 설정.
+        date.setMonth(11);
+        date.setDate(25);
+        date.setHours(13); //24시간 표기법
+        document.write("<h2>월/일/시간만 변경 후 출력</h2>");
+        document.write(
+            (date.getYear()+1900)+"년 "+
+            (date.getMonth()+1)+"월 "+
+            date.getDate()+"일<br>");
+        
+        //요일 가져오기: 일(0) ~ 토(6)까지 반환
+        document.write("<h2>요일얻기</h2>");
+        switch(date.getDay()){
+            case 0:document.write("일요일");break;
+            case 1:document.write("월요일");break;
+            case 2:document.write("화요일");break;
+            case 3:document.write("수요일");break;
+            case 4:document.write("목요일");break;
+            case 5:document.write("금요일");break;
+            case 6:document.write("토요일");break;
+        }
+        
+        //두 날짜 사이의 차 구하기
+        var startDate=new Date(2020, 11, 25); //올해 크리스마스
+        var endDate=new Date(); //현재날짜
+        /*
+            getTime(): 1970년 1월 1일부터 현재까지의 시간을 
+            초단위로 반환 이를 timestamp라 한다. 
+            1/1000초 단위의 시간을 사용한다.
+        */
+        var diff=startDate.getTime() - endDate.getTime();
+
+        document.write("<h2>크리스마스까지의 남은 일수는?</h2>");
+        //1초가 1000ms 이므로 1000을 곱하게 됨.
+        document.write(diff/(1000*60*60*24)+"일");
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
