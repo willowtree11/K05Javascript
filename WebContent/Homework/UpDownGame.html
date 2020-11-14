@@ -11,11 +11,12 @@
     </style>
     <script>
         
-        var randNum=1+Math.abs(Math.floor(Math.random()*100)); //난수생성
+        var randNum=parseInt(Math.random()*100)+1;//난수생성
+        //1+Math.abs(Math.floor(Math.random()*100)); 인터넷참고
         var hereTryNum=0; //몇번 시도했는지 카운트
         
         function UpDownGame() {
-            if(hereTryNum<7){ //실행
+            if(hereTryNum<7){ //7번이 될 때 까지
                 var img_tag=document.getElementById("udImg"); //이미지src 바꿀 변수
                 var upDownNum
                     =parseInt(document.getElementById("upDownNum").value); //user에게서 받아오는 숫자
