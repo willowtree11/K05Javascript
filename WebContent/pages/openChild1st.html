@@ -5,17 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>/pages/openChild1st.html</title>
     <script>
-        function.openChild2(){
+        function openChild2(){
             window.open("openChild2nd.html", "child2",
             "width=300, height=300, left=300, top=0");
         }
+        function openChild2(){
+            window.open("openChild2nd.html", "child2",
+                "width=300, height=300, left=300, top=0");
+        }
+
+        /* 
+            JS에서 CSS속성 제어하기
+            : CSS속성 중 -(하이픈)이 있는 경우에는 -을 제거한 후 다음 첫문자를 대문자로 표현한다.
+            하이픈이 없는 경우에는 원형 그대로 사용한다.
+            ex. font-size : fontSize
+                color : color
+         */
+        // 부모창의 버튼을 text 상자로 변경한다.
         var openerText=function(){
             opener.document.getElementById("btnFirst").type="text";
             opener.document.getElementById("btnFirst").style.backgroundColor="red";
         }
+        // 부모창의 text 상자를 버튼으로 변경한다.
+        var openerButton=function(){
+            opener.document.getElementById("btnFirst").type="button";
+            opener.document.getElementById("btnFirst").style.backgroundColor="blue";
+        }
     </script>
 </head>
+
 <body>
-    
+    <h2>openChild First 창</h2>
+    <p stlye="text-align:center;">
+        <button onclick="openChild2();">
+            팝업에서 팝업열기
+        </button>
+        <button onclick="openText();">
+            부모창의 버튼을 text박스로 변경하기
+        </button>
+        <button onclick="openerButton();">
+            부모창의 버튼을 button으로 변경하기
+        </button>
+    </p>
 </body>
 </html>

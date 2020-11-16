@@ -9,11 +9,60 @@
         window.addEventListener("load", function(){
             alert("Load 이벤트 활용 3. 문서로딩 완료됨..")
         });
+        function myFunc(){
+            var mydiv=document.getElementById("mydiv").innerHTML;
+            alert("mydiv의 내용="+mydiv);
+        }
+        /*
+        
+        var mydiv=document.getElementById("mydiv").innerHTML;
+        alert("mydiv의 내용="+mydiv);
+        => 실행이 안됨 innerHTML속성을 읽어오지 못함 
+        JS는 인터프리터방식이므로 문서가 완전히 끝난 다음에야 읽어올수 있는것.. 
+        (DOM이 등장하기 전에 해당 내용을 가져오면 에러가 발생하게 된다.)
+
+        따라서 HTML문서 로드가 끝난 이후 읽어올 수 있도록 해야 한다.
+        코드자체에는 문제가 없으나 순서의 문제.. 실행하려면???
+
+            div영역이 끝난 후 script를 위치하면 실행됨.
+            함수로 만들어 놓고 나중에 함수를 호출하면 됨.
+        */
+        
     </script>
+    <style>
+        #mydiv{
+            width:200px;
+            height:40px;
+            background-color: #aaa;
+            border-radius:5px;
+            margin: 0 auto;
+            line-height:2.5em;
+            text-align: center;
+        }
+        #mydiv:hover{
+            background-color:blue;
+            font-weight:900;
+            color:#fff;
+        }
+    </style>
 </head>
 <body>
     <script>
         alert("문서의 마지막 부분");
     </script>
+
+    <div id="mydiv" onclick="myFunc();" style="cursor:pointer;">
+        여기는 div영역입니다.
+    </div>
+    <!--
+        
+    <script>
+        //DOM이 선언된 이후이므로 여기에 스크립트를 기재해도 된다.
+
+        var mydiv=document.getElementById("mydiv").innerHTML;
+        alert("mydiv의 내용="+mydiv);
+    </script>
+
+    -->
 </body>
 </html>

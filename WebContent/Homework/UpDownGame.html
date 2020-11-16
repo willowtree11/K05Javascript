@@ -14,13 +14,15 @@
         var randNum=parseInt(Math.random()*100)+1;//난수생성
         //1+Math.abs(Math.floor(Math.random()*100)); 인터넷참고
         var hereTryNum=0; //몇번 시도했는지 카운트
-        
+        //var retry=document.getElementById("retry"); //retry button의 display style 바꿀 변수
+
         function UpDownGame() {
             if(hereTryNum<7){ //7번이 될 때 까지
+                var retry=document.getElementById("retry");
                 var img_tag=document.getElementById("udImg"); //이미지src 바꿀 변수
                 var upDownNum
                     =parseInt(document.getElementById("upDownNum").value); //user에게서 받아오는 숫자
-               
+                
                 if(!(upDownNum>=1&&upDownNum<=100)){
                     alert("1~100 사이의 정수를 입력해주세요"); //1~100 구간 밖의 숫자 에러처리
                     img_tag.src="../images/error.jpg";
@@ -35,23 +37,18 @@
                     else if (upDownNum == randNum){
                         alert("정답입니다!");
                         img_tag.src="../images/answer.jpeg";
+                        if(retry.style.display=="none"){
+                            retry.style.display="inline";
+                        }
                     }
                     hereTryNum++;
+                    document.getElementById("hereTryNum").innerHTML=hereTryNum; //hereTryNum 자리에 횟수 출력
                 }
-                document.getElementById("hereTryNum").innerHTML=hereTryNum; //hereTryNum 자리에 횟수 출력
             }
             else {
                 alert("시도횟수가 초과하였습니다 게임을 재시작 합니다.");
                 location.reload();
             } 
-            /* 
-            1. 난수생성
-            2. 유저로부터 숫자 입력받기(입력받을 때 마다 var에 카운트 저장)~최대 7회
-               7회 넘기면 재시작을 위해 location.reload()함수로 초기화
-            3. 생성된 난수와 입력받은 수 비교
-            4. 비교결과->저장할 var->이미지도출
-            5. 맞췄을 시 정답 alert
-             */
         }
     </script>
 </head>
@@ -63,6 +60,7 @@
         <label for="upDownNum">숫자입력: </label>
         <input type="number" id="upDownNum">
         <button id="submit" onclick="UpDownGame()">확인</button>
+        <button id="retry" onclick="window.location.reload()" style="display: none;">새로고침</button>
     </div>
     <br>
     <img src="../images/updowngame.jpg" alt="업다운게임 메인이미지" id="udImg" width="300">
