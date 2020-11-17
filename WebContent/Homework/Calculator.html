@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,14 +25,16 @@
             */
 
             /* ver.2 */
-            var lcd=document.getElementById('lcd');
-            var lcd=document.getElementById('tempCalc');
+            var tempCalc=document.getElementById('tempCalc');
+            var tempCalcH=document.getElementById('tempCalc').innerHTML;
             var lcdH=document.getElementById('lcd').innerHTML;
             var result = lcdH.substr(0, lcd.length-1);
+            var display = parseInt(tempCalcH);
             if(lcdH==0){
                 document.getElementById("lcd").innerHTML=result;
             }
-            lcd.innerHTML += val;
+            tempCalc.innerHTML += val;
+            document.getElementById("lcd").innerHTML=display;
         }
         function Calculate(){
             /*
@@ -43,8 +45,8 @@
             document.getElementById("lcd").innerHTML=result; //html문서로 출력
             
             */
-            var lcd=document.getElementById('lcd').innerHTML; //html문서로 부터 입력
-            var result = eval(lcd);
+            var tempCalc=document.getElementById('tempCalc').innerHTML; //html문서로 부터 입력
+            var result = eval(tempCalc);
             document.getElementById("lcd").innerHTML=result; //html문서로 출력
         }
         function BackSpace(){
@@ -61,11 +63,6 @@
         <span>파일명 : Calculator.html</span>
     </div>
     <br>
-    <!-- 
-        hidden form 2개
-        ->수식 저장할 폼 한개(calcForm), 연산기호 저장할 폼(opForm) 한개(연산기호 한번만 눌릴수 있도록 구성함)*
-        * 연산기호가 있으면 1번째 폼에서 끝부분만 바꾸기
-     -->
     <span id="tempCalc"></span>
     <span id="tempOp"></span>
     <table>
