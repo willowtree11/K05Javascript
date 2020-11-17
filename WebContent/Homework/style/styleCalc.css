@@ -1,0 +1,72 @@
+*{margin:0px; padding:0; background:none;
+    font-size:28px;
+    font-family: 'NeoDunggeunmo Code';
+}
+input, button{
+    outline:none;
+}
+.title{
+    margin:20px 0 0 20px;
+}
+.title>span{
+    font-size:18px; font-weight:normal;
+}
+table{
+    width: 500px; height: 550px;
+    margin:20px; padding:6px;
+    background-color: #DDD;
+    border-radius: 10px;
+    border-spacing: 6px;
+    table-layout: fixed;
+}
+
+th, td{
+    width: 150px;
+    overflow: hidden;
+}
+
+button{
+    width:100%; height:100%; 
+    display:block;
+    border:none;
+    background-color:#fff;
+    border-radius: 10px;
+    color:#fff;
+}
+button:hover{
+    cursor:pointer;
+}
+.lcd{
+    height:120px;
+    overflow: hidden;
+}
+#lcd{
+    background-color:#70C738;
+    padding:0 20px;
+    border:none;
+    border-radius: 10px;
+    text-align:right;
+    font-size: 47px;
+    color:#333;
+}
+span#tempCalc, span#tempOp{
+    padding:0;
+    height:20px;
+    color:rgba(51,51,51,0.5);
+    background-color:transparent;
+    
+    font-size:21px;
+    display:block;
+}
+.bigBtn > td button{
+    width:100%; height:100%; 
+    background-color:#7B7B7B;
+}
+.smallBtn > td button{
+    width:100%; height:100%; 
+    background-color:#373737;
+}
+.smallBtn > td:last-child > button{
+    background-color:#FA960A;
+}
+

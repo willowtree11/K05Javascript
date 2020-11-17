@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/styleCalc.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm_code/style.css">
+    <title>Calculator</title>
+    <script>
+        window.onload = function(){
+            var zero = document.getElementById('lcd');
+            zero.innerHTML="0";
+        }
+        function addVal(val){
+            /*
+            [ver.1]
+
+            var lcd=document.getElementById('lcd');
+            var lcdH=document.getElementById('lcd').innerHTML;
+            var result = lcdH.substr(0, lcd.length-1);
+            if(lcdH==0){
+                document.getElementById("lcd").innerHTML=result;
+            }
+            lcd.innerHTML += val;
+            */
+
+            /* ver.2 */
+            var lcd=document.getElementById('lcd');
+            var lcd=document.getElementById('tempCalc');
+            var lcdH=document.getElementById('lcd').innerHTML;
+            var result = lcdH.substr(0, lcd.length-1);
+            if(lcdH==0){
+                document.getElementById("lcd").innerHTML=result;
+            }
+            lcd.innerHTML += val;
+        }
+        function Calculate(){
+            /*
+            [ver.1]
+
+            var lcd=document.getElementById('lcd').innerHTML; //html문서로 부터 입력
+            var result = eval(lcd);
+            document.getElementById("lcd").innerHTML=result; //html문서로 출력
+            
+            */
+            var lcd=document.getElementById('lcd').innerHTML; //html문서로 부터 입력
+            var result = eval(lcd);
+            document.getElementById("lcd").innerHTML=result; //html문서로 출력
+        }
+        function BackSpace(){
+            var lcd=document.getElementById('lcd').innerHTML;
+            var result = lcd.substr(0, lcd.length-1);
+            document.getElementById("lcd").innerHTML=result; //html문서로 출력
+        }
+
+    </script>
+</head>
+<body>
+    <div class="title">
+        계산기 예제<br>
+        <span>파일명 : Calculator.html</span>
+    </div>
+    <br>
+    <!-- 
+        hidden form 2개
+        ->수식 저장할 폼 한개(calcForm), 연산기호 저장할 폼(opForm) 한개(연산기호 한번만 눌릴수 있도록 구성함)*
+        * 연산기호가 있으면 1번째 폼에서 끝부분만 바꾸기
+     -->
+    <span id="tempCalc"></span>
+    <span id="tempOp"></span>
+    <table>
+        <tbody>
+            <tr class="lcd">
+                <th colspan="4" id="lcd" value="0"></th>
+            </tr>
+            <tr class="bigBtn">
+                <td colspan="2"><button onclick="BackSpace()">BackSpace</button></td>
+                <td colspan="2"><button onclick="location.reload();">C</button></td>
+            </tr>
+            <tr class="smallBtn">
+                <td><button onclick="addVal(1)">1</button></td>
+                <td><button onclick="addVal(2)">2</button></td>
+                <td><button onclick="addVal(3)">3</button></td>
+                <td><button onclick="addVal('/')">/</button></td>
+            </tr>
+            <tr class="smallBtn">
+                <td><button onclick="addVal(4)">4</button></td>
+                <td><button onclick="addVal(5)">5</button></td>
+                <td><button onclick="addVal(6)">6</button></td>
+                <td><button onclick="addVal('*')">x</button></td>
+            </tr>
+            <tr class="smallBtn">
+                <td><button onclick="addVal(7)">7</button></td>
+                <td><button onclick="addVal(8)">8</button></td>
+                <td><button onclick="addVal(9)">9</button></td>
+                <td><button onclick="addVal('+')">+</button></td>
+            </tr>
+            <tr class="smallBtn">
+                <td><button onclick="Calculate()" value="=">=</button></td>
+                <td><button onclick="addVal(0)">0</button></td>
+                <td><button onclick="addVal('.')">.</button></td>
+                <td><button onclick="addVal('-')">-</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>
